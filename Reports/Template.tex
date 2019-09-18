@@ -1,0 +1,83 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amssymb,amsfonts,bm,bbm}
+\usepackage{color}
+\usepackage[pdftex]{hyperref,graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Energy profile of lattice vibration at presence of a local drive}%replace X with the appropriate number
+\author{Huan-Kuang Wu} %if necessary, replace with your course title
+\maketitle
+
+Assuming the normal modes of system to be labeled by $(\alpha, q)$, with which the equation of motion is written as
+\begin{align}
+[\partial_t^2 + K_\alpha(q)] r_\alpha(q,t) = 0
+\end{align}
+The Green's function in these modes becomes
+\begin{align}
+\tilde{G}_{\alpha}(q,\omega) = \frac{1}{-\omega^2+K_\alpha(q)},
+\end{align}
+which satisfies
+\begin{align}
+[-\omega^2+K_\alpha(q)]\tilde{G}_{\alpha}(q,\omega) = 1
+\end{align}
+Next, the $\omega_0$ driving force acting on the center mass at site $j=0$ is
+\begin{align}
+\vec{F}_{ext}(j, \omega) = 2\pi\delta(\omega-\omega_0)\delta_{j,0}(c_x\hat{R}_x +c_y\hat{R}_y)
+\end{align}
+where $(R_x,R_y)$ is the degree of freedom for the atom at the center of a unit cell.
+In the eigen-basis, the force can be represented as
+\begin{align}
+&\vec{F}_{ext}(j, \omega) = 2\pi\delta(\omega-\omega_0)  \int \frac{dq}{2\pi} \sum_{\alpha} c_\alpha(q) \hat{\alpha}(q) e^{iq R_j}\nonumber\\&
+\rightarrow F_{ext,\alpha}(q,\omega) = 2\pi \delta(\omega-\omega_0)c_\alpha (q)
+\end{align}
+where $c_\alpha(q) \equiv (c_x\hat{R}_x +c_y\hat{R}_y)\cdot\hat{\alpha}(q)$.
+Therefore, letting $\hat{\alpha}(q) = \alpha_{\lambda}(q) \hat{r}_\lambda$, where $\lambda$ represents the coordinates of atoms ($i,x$) or ($i,y$)
+\begin{align}
+r_\lambda(q,\omega) = 2\pi\delta(\omega-\omega_0) \sum_{\alpha}\frac{c_\alpha(q)\alpha_\lambda(q)}{-\omega_0^2+K_\alpha(q)}
+\end{align}
+transforming back to real space, 
+\begin{align}
+r_\lambda(j,t) = \int \frac{d^2q}{(2\pi)^2} \sum_{\alpha}\frac{c_\alpha(q)\alpha_\lambda(q) }{-\omega_0^2+K_\alpha(q)}e^{i(qj-\omega_0 t)}
+\end{align}
+Assuming the elastic energy on site $j$ can be written as 
+\begin{align}
+U(j) = \sum_{\lambda,\lambda'}r_\lambda(j,t) \tilde{K}_{\lambda,\lambda'}r_{\lambda'}(j,t)
+\end{align}
+the time-averaged energy is
+\begin{align}
+\langle U(j)\rangle = \frac{1}{2} \sum_{\lambda,\lambda'}r_\lambda(j,0) \tilde{K}_{\lambda,\lambda'}r_{\lambda'}(j,0)
+\end{align}
+
+
+
+\end{document}
